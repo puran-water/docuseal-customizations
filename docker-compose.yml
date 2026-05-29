@@ -1,0 +1,24 @@
+services:
+  docuseal:
+    image: docuseal/docuseal:latest   # arm64-confirmed; pin to a digest after first validated deploy
+    container_name: docuseal
+    restart: unless-stopped
+    env_file: .env
+    ports:
+      - "127.0.0.1:3050:3000"
+    volumes:
+      - docuseal-data:/data/docuseal
+      # PuranOS Docuseal customizations: document-ingestion API routes
+      # (PDF/DOCX/DOC/HTML) + AGPL §13 source-offer middleware.
+      - ./initializers/zzz_puranos_customizations.rb:/app/config/initializers/zzz_puranos_customizations.rb:ro
+    networks: [services-net]
+    logging:
+      driver: json-file
+      options: { max-size: "10m", max-file: "3" }
+
+volumes:
+  docuseal-data:
+
+networks:
+  services-net:
+    external: true
