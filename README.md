@@ -1,5 +1,14 @@
 # PuranOS Docuseal Customizations
 
+## Role in the current PuranOS system
+
+This repository publishes the Docuseal-specific modifications and their source-offer material. It is separate from the [public engineering MCP packages](https://github.com/puran-water/PuranOS-public/blob/main/docs/public-tools.md) and is not a distribution of the complete PuranOS workflow.
+
+Engineering proposals and BEPs originate in the [retained sizing-and-balance workflow](https://github.com/puran-water/PuranOS-public/blob/main/docs/workflows.md). Signature preparation and document conversion are downstream operations; they do not supply the engineering approval itself. Follow the version assumptions and AGPL source obligations documented here when running the customization.
+
+Built by [Puran Water](https://puranwater.com/).
+
+
 This service runs self-hosted [Docuseal](https://www.docuseal.com/) Community
 (AGPL-3.0) with a single read-only Ruby initializer mounted into the container.
 The initializer extends the Rails app with two PuranOS-specific behaviors,
